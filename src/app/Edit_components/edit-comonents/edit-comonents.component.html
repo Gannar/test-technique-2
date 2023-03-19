@@ -1,0 +1,112 @@
+<div mat-dialog-title style="background-color: #3680bd3b;"
+    class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="ps-3">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Component </li>
+            </ol>
+        </nav>
+    </div>
+
+    <a href="javascript:;" style=" margin-left: auto; margin-right: 10px; font-size: 30px;" (click)="closeDialog()"><i
+            class="bx bx-window-close"></i></a>
+
+</div>
+
+<div class="row">
+    <div class="col-xl-12 mx-auto">
+
+        <div class="card">
+            <div class="card-body p-4">
+
+                <form class="row g-3" [formGroup]="editForm">
+                    <input type="text" class="form-control" id="idmesure" formControlName="id" hidden>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="brandName" class="form-label">Brand <span style="color:red">*</span></label>
+                            <select id="brandName" class="form-select"
+                                [ngClass]="{'is-invalid':submitted && formControl.brandName.errors }"
+                                formControlName="brandName">
+                                <option *ngFor="let item of brands;let i=index" value={{item.brandId}}> {{item.name}}
+                                </option>
+                            </select>
+
+                            <div *ngIf="submitted && formControl.brandName.errors" class="invalid-feedback">
+                                <div *ngIf="formControl.brandName.errors.required">Brand Required</div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="campaignName" class="form-label">Compaign Name <span
+                                    style="color:red">*</span></label>
+                            <div class="position-relative ">
+                                <input type="text" class="form-control" id="campaignName"
+                                    [ngClass]="{'is-invalid':submitted && formControl.campaignName.errors }"
+                                    formControlName="campaignName" placeholder="">
+
+                                <div *ngIf="submitted && formControl.campaignName.errors" class="invalid-feedback">
+                                    <div *ngIf="formControl.campaignName.errors.required">Compaign Name Required</div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <label for="deadline" class="form-label">Media <span style="color:red">*</span></label>
+                            <div class="form-check" *ngFor="let item of media;let i=index">
+                                <input class="form-check-input" type="checkbox" value={{item.mediaId}} id="mediaName"
+                                    formControlName="mediaName">
+                        <label class=" form-check-label" for="mediaName">
+                                {{item.value}}
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="deadline" class="form-label">Deadline for decision <span
+                                    style="color:red">*</span></label>
+                            <div class="position-relative ">
+                                <input type="date" class="form-control" id="deadline"
+                                    [ngClass]="{'is-invalid':submitted && formControl.deadline.errors }"
+                                    formControlName="deadline" placeholder="deadline">
+
+                                <div *ngIf="submitted && formControl.deadline.errors" class="invalid-feedback">
+                                    <div *ngIf="formControl.deadline.errors.required">Deadline for decision Required
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" style=" margin-top: 20px; margin-right:10px;"
+                                (click)="onSave()">Edit</button>
+                            <button class="btn btn-secondary" style=" margin-top: 20px;"
+                                [mat-dialog-close]="true">Close</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

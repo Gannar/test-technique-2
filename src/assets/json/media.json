@@ -1,0 +1,32 @@
+[
+    {
+        "mediaId": 1,
+        "name": "LABELING_PACKAGING",
+        "value": "Labeling/Packaging"
+    },
+    {
+        "mediaId": 2,
+        "name": "NEW_PRODUCT_INNOVATION",
+        "value": "New Product/innovation"
+    },
+    {
+        "mediaId": 3,
+        "name": "OOH",
+        "value": "OOH"
+    },
+    {
+        "mediaId": 6,
+        "name": "PROMOTIONS",
+        "value": "Promotions"
+    },
+    {
+        "mediaId": 7,
+        "name": "RADIO",
+        "value": "Radio"
+    },
+    {
+        "mediaId": 12,
+        "name": "COLLABORATION",
+        "value": "Collaboration"
+    }
+]
